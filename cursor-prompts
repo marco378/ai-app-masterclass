@@ -1,0 +1,269 @@
+# Cursor AI Prompts for Task Manager App
+
+## Basic Task Manager Prompt for Cursor
+
+```
+Create a complete HTML task manager application with:
+- Modern, responsive design using CSS Grid/Flexbox
+- Add, edit, delete, and complete tasks
+- Local storage persistence
+- Mobile-friendly interface
+- Smooth animations and transitions
+- Clean, semantic HTML structure
+- Vanilla JavaScript (no frameworks)
+- Professional color scheme
+```
+
+## Advanced Feature Prompts
+
+### 1. Add Categories/Tags
+```
+Add task categorization to the existing task manager:
+- Dropdown to select category (Work, Personal, Shopping, etc.)
+- Color-coded categories
+- Filter tasks by category
+- Category statistics
+```
+
+### 2. Due Dates & Priorities
+```
+Enhance task manager with:
+- Date picker for due dates
+- Priority levels (High, Medium, Low) with visual indicators
+- Sort tasks by due date or priority
+- Overdue task highlighting
+```
+
+### 3. Dark Mode Toggle
+```
+Add dark mode functionality:
+- Toggle button in header
+- Dark color scheme with good contrast
+- Smooth theme transition animation
+- Remember user preference in localStorage
+```
+
+## File Structure for Larger Projects
+
+### HTML Component (index.html)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+### CSS Component (styles.css)
+```css
+/* Modern CSS Variables Approach */
+:root {
+    --primary-color: #4facfe;
+    --secondary-color: #00f2fe;
+    --success-color: #28a745;
+    --danger-color: #ff4757;
+    --warning-color: #ffa502;
+    --dark-color: #2f3542;
+    --light-color: #f1f2f6;
+    --border-radius: 10px;
+    --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+    --primary-color: #5b73f0;
+    --background-color: #1a1a2e;
+    --text-color: #e94560;
+    --card-color: #16213e;
+}
+
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--background-color, #f8f9fa);
+    color: var(--text-color, #333);
+    line-height: 1.6;
+}
+```
+
+### JavaScript Component (script.js)
+```javascript
+// Modern ES6+ Task Manager Class
+class TaskManager {
+    constructor() {
+        this.tasks = this.loadTasks();
+        this.currentFilter = 'all';
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.render();
+    }
+
+    setupEventListeners() {
+        document.getElementById('add-task').addEventListener('click', this.addTask.bind(this));
+        document.getElementById('task-input').addEventListener('keypress', this.handleKeyPress.bind(this));
+        // More event listeners...
+    }
+
+    addTask(text, category = 'general', priority = 'medium') {
+        const task = {
+            id: Date.now(),
+            text: text.trim(),
+            category,
+            priority,
+            completed: false,
+            createdAt: new Date().toISOString(),
+            dueDate: null
+        };
+        
+        this.tasks.unshift(task);
+        this.saveTasks();
+        this.render();
+    }
+
+    // More methods...
+}
+
+// Initialize app
+document.addEventListener('DOMContentLoaded', () => {
+    new TaskManager();
+});
+```
+
+## Cursor-Specific Commands
+
+### Generate Component
+```
+@cursor Generate a reusable task component that accepts props for task data and callbacks for actions
+```
+
+### Refactor Code
+```
+@cursor Refactor this vanilla JavaScript to use modern ES6+ features like classes, arrow functions, and destructuring
+```
+
+### Add Tests
+```
+@cursor Create unit tests for the TaskManager class methods using Jest
+```
+
+### Optimize Performance
+```
+@cursor Optimize this code for better performance - reduce DOM queries and improve rendering efficiency
+```
+
+## Progressive Enhancement Prompts
+
+### Level 1: Basic Functionality
+```
+Create a simple task manager with just add and delete functionality
+```
+
+### Level 2: Enhanced Features
+```
+Add to the existing task manager:
+- Edit tasks inline
+- Mark as complete
+- Filter by status
+- Task counter
+```
+
+### Level 3: Advanced Features
+```
+Transform into a full productivity app:
+- Drag and drop reordering
+- Keyboard shortcuts
+- Export/import tasks
+- Search functionality
+- Task templates
+```
+
+### Level 4: Professional Features
+```
+Add enterprise-level features:
+- Multi-user support (mock data)
+- Task sharing
+- Subtasks and dependencies
+- Time tracking
+- Reporting dashboard
+```
+
+## Deployment Variations
+
+### Replit Deployment
+```
+Prepare this task manager for Replit deployment:
+- Single HTML file structure
+- Optimized for mobile
+- Add meta tags for sharing
+- Include favicon
+```
+
+### Netlify/Vercel Deployment
+```
+Structure this project for static site deployment:
+- Separate HTML, CSS, JS files
+- Add build optimization
+- Include manifest.json for PWA
+- Add service worker for offline support
+```
+
+### GitHub Pages Deployment
+```
+Optimize for GitHub Pages:
+- Create proper file structure
+- Add README with demo link
+- Include screenshots
+- Setup GitHub Actions for auto-deployment
+```
+
+## Debugging Prompts
+
+### Fix Common Issues
+```
+@cursor Debug this task manager - tasks are not persisting after page refresh
+```
+
+### Responsive Issues
+```
+@cursor Fix responsive design issues on mobile devices - buttons are too small and layout breaks
+```
+
+### Performance Issues
+```
+@cursor Optimize this task manager for better performance with large numbers of tasks
+```
+
+## Code Style Prompts
+
+### Clean Code
+```
+@cursor Refactor this code following clean code principles - better naming, smaller functions, clear comments
+```
+
+### Modern JavaScript
+```
+@cursor Update this code to use modern JavaScript features like optional chaining, nullish coalescing, and async/await
+```
+
+### Accessibility
+```
+@cursor Make this task manager fully accessible - add ARIA labels, keyboard navigation, and screen reader support
+```
